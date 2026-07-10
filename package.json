@@ -1,0 +1,13 @@
+{
+  "name": "codex-skills",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Installable skills for Codex and compatible agents.",
+  "workspaces": [
+    "skills/*"
+  ],
+  "scripts": {
+    "pack:codex-orchestration": "npm pack --workspace @atlassianengine/codex-orchestration",
+    "publish:codex-orchestration": "npm publish --workspace @atlassianengine/codex-orchestration"
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "name": "@atlassianengine/codex-orchestration",
+  "version": "0.1.0",
+  "description": "Codex orchestration skill for decomposing, delegating, integrating, and verifying repository work.",
+  "license": "MIT",
+  "files": [
+    "SKILL.md",
+    "README.md"
+  ],
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  }
+}
