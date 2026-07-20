@@ -13,17 +13,12 @@ This repository contains multiple independent skills. Each skill lives under `sk
 
 ## Installation
 
-### 1. Codex Orchestration
-```bash
-npx skills add atlassianengine/Skills --skill codex-orchestration
-```
-
-### 2. Simplify Code Isomorphically
+### 1. Simplify Code Isomorphically
 ```bash
 npx skills add atlassianengine/Skills --skill simplify-code-isomorphically
 ```
 
-### 3. Svelte Composition Patterns
+### 2. Svelte Composition Patterns
 ```bash
 npx skills add atlassianengine/Skills --skill svelte-composition-patterns
 ```
