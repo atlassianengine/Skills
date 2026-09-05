@@ -10,6 +10,7 @@ This repository contains multiple independent skills. Each skill lives under `sk
 | --- | --- | --- |
 | Simplify Code Isomorphically | Behavior-preserving simplification and refactoring. Removes technical debt, AI slop, and redundancy while preserving external behavior and APIs. | [`skills/simplify-code-isomorphically`](skills/simplify-code-isomorphically) |
 | Svelte Composition Patterns | Svelte 5 component composition patterns for reusable UI APIs, design-system primitives, layout shells, snippets, reactive classes, and context. | [`skills/svelte-composition-patterns`](skills/svelte-composition-patterns) |
+| Thermo-Nuclear Code Quality Review | Evidence-first structural code-quality review for maintainability regressions and high-leverage simplifications. | [`skills/thermo-nuclear-code-quality-review`](skills/thermo-nuclear-code-quality-review) |
 
 ## Installation
 
@@ -21,6 +22,11 @@ npx skills add atlassianengine/Skills --skill simplify-code-isomorphically
 ### 2. Svelte Composition Patterns
 ```bash
 npx skills add atlassianengine/Skills --skill svelte-composition-patterns
+```
+
+### 3. Thermo-Nuclear Code Quality Review
+```bash
+npx skills add atlassianengine/Skills --skill thermo-nuclear-code-quality-review
 ```
 
 ### Install All Skills
