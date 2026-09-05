@@ -4,6 +4,8 @@
 
 Define prop types close to the component unless a type is reused across multiple modules. TypeScript is for the component's data/API contract, not for owning CSS styling logic.
 
+Prefer semantic inputs and intent-named callbacks. A child API that mirrors most of its internals or forces the parent to forward unrelated props is evidence that the ownership split is wrong.
+
 ```svelte
 <script lang="ts">
   interface Props {
@@ -98,6 +100,8 @@ export const [getMenuContext, setMenuContext] = createContext<MenuContext>();
 ```
 
 Use context for local UI families such as tabs, menus, accordions, and command palettes. Keep durable data fetching, persistence, and server communication outside the UI context unless the provider is explicitly an infrastructure adapter.
+
+Do not introduce context solely to avoid passing one or two clear values through one level. Context should make a compound family easier to use, not hide ownership.
 
 ## Styling Boundary
 

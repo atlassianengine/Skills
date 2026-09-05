@@ -1,5 +1,7 @@
 # Svelte 5 Composition Patterns
 
+Use these APIs only after the component analysis has identified a real seam. Snippets, context, and reactive models are composition tools, not reasons to create more layers.
+
 ## 1. Snippet Regions
 
 Use snippet props for caller-owned markup. `children` is the implicit default snippet; named snippets replace named slots.
@@ -253,60 +255,35 @@ For one-shot actions, use callback props instead of custom events:
 <button type="button" onclick={() => onSubmit(value)}>Save</button>
 ```
 
-## 7. Class-Based Reactive Models
+## 7. Nonvisual Reactive Models
 
-Instead of using global writable stores, define standard TypeScript classes with `$state` fields to encapsulate reactive state and business logic. These can be shared globally or injected via context.
+Use a `.svelte.ts` object or class when reactive state, derivation, lifecycle, and commands form one coherent nonvisual owner that is shared across a component family or would otherwise obscure composition.
 
 ```typescript
-// countState.svelte.ts
+// counter-model.svelte.ts
 export class CounterModel {
-  // Reactive fields
   count = $state(0);
-  
-  // Reactive derivation
   double = $derived(this.count * 2);
 
   increment() {
     this.count += 1;
   }
-
-  decrement() {
-    this.count -= 1;
-  }
 }
 ```
 
-Instantiate and bind directly in Svelte templates:
+Instantiate it at the narrowest owner and pass or provide that instance deliberately. Do not create a global model by default, move view-only markup into it, or use a model merely to reduce the line count of a component.
+
+## 8. Event Attributes And Callback APIs
+
+For new Svelte 5 runes-mode code, use event attributes for DOM events and callback props for component actions. Preserve the semantic behavior of legacy event modifiers during a requested migration by calling the corresponding event methods explicitly.
 
 ```svelte
-<!-- Counter.svelte -->
 <script lang="ts">
-  import { CounterModel } from './countState.svelte';
-  const model = new CounterModel();
-</script>
-
-<button onclick={() => model.decrement()}>-</button>
-<span>{model.count} (Double: {model.double})</span>
-<button onclick={() => model.increment()}>+</button>
-```
-
-## 8. Event Handlers and Modifier Migration
-
-Svelte 5 uses standard HTML event attributes (e.g., `onclick`, `onsubmit`) and has removed template event modifiers (like `on:click|preventDefault`). Call event methods explicitly within your handler functions or use reusable wrapper functions.
-
-```svelte
-<!-- Form.svelte -->
-<script lang="ts">
-  interface Props {
-    onsave: () => void;
-  }
-
-  let { onsave }: Props = $props();
+  let { onSave }: { onSave: () => void } = $props();
 
   function handleSubmit(event: SubmitEvent) {
     event.preventDefault();
-    event.stopPropagation();
-    onsave();
+    onSave();
   }
 </script>
 
@@ -315,17 +292,14 @@ Svelte 5 uses standard HTML event attributes (e.g., `onclick`, `onsubmit`) and h
 </form>
 ```
 
-Or use a generic utility wrapper:
+Create a reusable event helper only when multiple real call sites need identical behavior. A one-line explicit handler is usually clearer than a new utility abstraction.
 
-```typescript
-// eventHelpers.ts
-export function preventDefault<E extends Event>(fn: (event: E) => void) {
-  return function (event: E) {
-    event.preventDefault();
-    fn(event);
-  };
-}
+## Official references
 
-// Usage in template:
-// <form onsubmit={preventDefault(handleSubmit)}>
-```
+Consult these only when syntax or version behavior matters:
+
+- [Snippets](https://svelte.dev/docs/svelte/snippet)
+- [Context](https://svelte.dev/docs/svelte/context)
+- [`$props`](https://svelte.dev/docs/svelte/$props) and [`$bindable`](https://svelte.dev/docs/svelte/$bindable)
+- [Svelte 5 migration guide](https://svelte.dev/docs/svelte/v5-migration-guide)
+- [`sv check`](https://svelte.dev/docs/cli/sv-check)

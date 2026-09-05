@@ -1,0 +1,4 @@
+interface:
+  display_name: "Anti Over-Engineering"
+  short_description: "Stop scope drift and low-value extra work"
+  default_prompt: "Use $anti-over-engineering to freeze the real done condition, assign one verification owner, triage residuals, and stop when the outcome is proven."

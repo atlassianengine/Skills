@@ -25,6 +25,8 @@ De-repeat is not blind DRY. Keep repeated code when the branches represent diffe
 
 Cyclomatic complexity measures how many independent paths exist through code. High complexity usually appears as many `if`, `else if`, `switch`, `case`, loop, catch, ternary, `&&`, or `||` decisions.
 
+Treat it as a routing signal, not a refactor mandate. When branch pressure materially drives the change, read [measured-complexity.md](measured-complexity.md) before editing. Use repository-configured tooling when available, preserve the full decision footprint across extracted helpers, and do not claim improvement merely because one function's score fell.
+
 Problem:
 
 - too many nested conditions
@@ -360,6 +362,7 @@ Stop and report instead of refactoring when:
 - repeated logic belongs to different domains with different future direction
 - the fix requires schema, API, route, command, storage, sync, or public prop changes
 - a circular dependency points to an unresolved ownership problem
+- the only gain is a lower metric while decisions, nesting, consumer knowledge, or ownership ambiguity remain
 
 ## 8. Review phrases
 
@@ -368,5 +371,6 @@ Use precise language:
 - “This is a lookup-table candidate because every branch maps one key to one pure value.”
 - “This is not safe to de-repeat because the branches share shape but not failure behavior.”
 - “Cyclomatic complexity is high here, but the safe first move is guard clauses, not a strategy abstraction.”
+- “The measured score fell, but the same decisions moved into helpers, so this is not yet a simplification.”
 - “This circular dependency is an ownership smell. I would extract the neutral type/constants layer, not create a generic utils file.”
 - “The repeated selector logic should move into a selector result function, not an input selector.”

@@ -1,4 +1,4 @@
 interface:
   display_name: "Svelte Composition Patterns"
-  short_description: "Svelte 5 component API patterns"
-  default_prompt: "Use $svelte-composition-patterns to design Svelte 5 component APIs with snippets, context, rest props, and explicit variants."
+  short_description: "Analyze and improve Svelte component boundaries"
+  default_prompt: "Use $svelte-composition-patterns to analyze this Svelte component graph before or after implementation and produce the smallest coherent reusable composition."

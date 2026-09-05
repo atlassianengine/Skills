@@ -101,7 +101,7 @@ const { data: task } = useQuery({
 });
 ```
 
-For database-backed or reactive UIs, prefer watch-query bridges, active cache sync hooks, or standard query hooks rather than component-local fetch effects.
+For database-backed or reactive UI, prefer watch-query bridges, active cache synchronization, or existing query hooks rather than component-local fetch effects.
 
 ### 4. Reset with key/remount when identity changes
 

@@ -102,7 +102,7 @@ Avoid:
 - storing filtered task IDs for every view if selectors can derive them
 - storing both `status` and `isDone`
 - nesting full child records inside parent records
-- copying database rows into multiple store slices with competing ownership
+- copying database rows into multiple state slices with competing ownership
 
 ## Stop conditions
 

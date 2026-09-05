@@ -1,0 +1,4 @@
+interface:
+  display_name: "Codex Orchestration"
+  short_description: "Coordinate supplied workers and integration"
+  default_prompt: "Use $codex-orchestration to delegate the supplied independent slices with the worker models and effort I specify, route only required skills, keep worker verification narrow, and retain one integration owner."

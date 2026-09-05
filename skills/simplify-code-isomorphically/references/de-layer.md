@@ -13,12 +13,12 @@ Put behavior in the layer that owns it. Boundaries are more important than line 
 - **State/read model**: normalized hot UI cache, selectors, view state.
 - **Domain logic**: policies, validation, state transitions, invariants.
 - **Mutation gateway/commands**: derive/validate write intent, optimistic update, persistence commit, rollback.
-- **Infrastructure**: databases, remote APIs, local storage, file systems, workers.
+- **Infrastructure**: databases, remote APIs, local storage, files, workers, and platform adapters.
 - **Engines/workers**: recurrence expansion, drag math, expensive projections, background processing.
 
 ## Smells
 
-- React component calls database query methods, `fetch`, Supabase/API clients, or filesystem APIs directly.
+- UI component calls database clients, `fetch`, hosted backend clients, filesystem APIs, or local storage directly.
 - Component imports SQL/query strings or storage adapters.
 - Selector imports mutation commands or API clients.
 - Domain utility imports React components, icons, CSS, or hooks.
