@@ -13,6 +13,7 @@ This repository contains multiple independent skills. Each skill lives under `sk
 | Svelte Composition Patterns | Analyze and improve Svelte component boundaries before or after implementation, preserving coherent ownership and avoiding micro-component sprawl. | [`skills/svelte-composition-patterns`](skills/svelte-composition-patterns) |
 | Anti Over-Engineering | Keep significant work on the smallest path that proves the real outcome while preventing scope drift and duplicated verification. | [`skills/anti-over-engineering`](skills/anti-over-engineering) |
 | Thermo-Nuclear Code Quality Review | Evidence-first structural code-quality review for maintainability regressions and high-leverage simplifications. | [`skills/thermo-nuclear-code-quality-review`](skills/thermo-nuclear-code-quality-review) |
+| Cloudflare Anti-Shock | Trace runaway Cloudflare usage from a real trigger to billable meters and capability-preserving repairs. | [`skills/cloudflare-anti-shock`](skills/cloudflare-anti-shock) |
 
 ## Installation
 
@@ -39,6 +40,11 @@ npx skills add atlassianengine/Skills --skill anti-over-engineering
 ### 5. Thermo-Nuclear Code Quality Review
 ```bash
 npx skills add atlassianengine/Skills --skill thermo-nuclear-code-quality-review
+```
+
+### 6. Cloudflare Anti-Shock
+```bash
+npx skills add atlassianengine/Skills --skill cloudflare-anti-shock
 ```
 
 ### Install All Skills
