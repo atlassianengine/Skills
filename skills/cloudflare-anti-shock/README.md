@@ -1,6 +1,6 @@
 # Cloudflare Anti-Shock
 
-![Runaway Cloudflare usage meets an anti-shock shield; a calm developer works beside a stable usage meter.](assets/anti-shock.png)
+![An overhead storm of rising cloud bills falls onto a standing protector's shield, leaving a wallet and relaxed developer safe below.](assets/anti-shock.png)
 
 One gesture can become hundreds of Durable Object messages, storage writes, retries, and log events. **Cloudflare Anti-Shock** traces that multiplication from a real trigger to every Cloudflare meter it touches, then identifies the smallest change that keeps the feature working.
 
